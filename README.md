@@ -51,3 +51,7 @@
 
     En la ruta de arriba, /workouts, /workouts/:workoutId y /workouts/:workoutId/records listan data diferente.
     Teóricamente se pueden anidar las veces que se quiera, pero lo recomendable es hacerlo hasta 3 veces.
+
+7. Integrate filtering, sorting and pagination
+    Otro punto clave en el que debemos trabajar al desarrollar una API es el rendimiento, por lo que, las acciones
+    de filtrar, ordenar y paginar son esenciales. 
