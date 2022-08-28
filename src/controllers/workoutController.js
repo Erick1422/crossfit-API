@@ -6,9 +6,18 @@
 
 const workoutService = require('../services/workoutService');
 
+// TODO: features para implementar:
+/** 
+ * filtrar por otros campos
+ * Opción de filtrar 5 workouts solamente, por ejemplo
+ * Realizar la opción de paginación
+ * Ordenar por fecha de creación, actualización etc.
+*/
 const getAllWorkouts = (req, res) => {
+
+    const { mode } = req.query;
     try {
-        const allWorkouts = workoutService.getAllWorkouts();
+        const allWorkouts = workoutService.getAllWorkouts({ mode });
         res
             .status(200)
             .send({ status: "OK", data: allWorkouts });

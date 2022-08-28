@@ -1,10 +1,17 @@
-
 const DB = require('./db.json');
 const { saveToDatabase } = require('./utils');
 
-const getAllWorkouts = () => {
+const getAllWorkouts = (filterParams) => {
     try {
-        return DB.workouts;
+        const { mode } = filterParams;
+
+        let workouts = DB.workouts
+        if (mode) {
+            return workouts.filter(workout =>
+                workout.mode.toLowerCase().includes(mode.toLowerCase()));
+        }
+        return workouts;
+
     } catch (error) {
         throw { status: 500, message: error }
     }
@@ -99,7 +106,7 @@ const deleteOneWorkout = (workoutId) => {
         }
         DB.workouts.splice(indexForDeletion, 1);
         saveToDatabase(DB);
-        
+
     } catch (error) {
         throw {
             status: error?.status || 500,

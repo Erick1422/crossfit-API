@@ -4,9 +4,9 @@ const { v4: uuid } = require('uuid');
 const Workout = require('../database/Workout');
 
 // Es buena práctica llamar los métodos de servicio como los del controlador
-const getAllWorkouts = () => {
+const getAllWorkouts = (filterParams) => {
     try {
-        const allWorkouts = Workout.getAllWorkouts();
+        const allWorkouts = Workout.getAllWorkouts(filterParams);
         return allWorkouts;
     } catch (error) {
         throw error;
